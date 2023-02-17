@@ -13,7 +13,7 @@ class UserDetailAPI(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny)
     
-    def get(self, request, *args, **kwargs);
+    def get(self, request, *args, **kwargs):
         user = User.objects.get(id=request.user.id)
         serializer = UserSerializer(user)
         return Response(serializer.data)
@@ -23,3 +23,4 @@ class RegisterUserAPIView(generics.CreateAPIView):
     """ View class to register user """
     permission_classes = (AllowAny)
     serializer_class = RegisterSerializer
+
